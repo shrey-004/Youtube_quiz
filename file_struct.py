@@ -1,97 +1,94 @@
-from pathlib import Path
+# from pathlib import Path
 
-files = [
-    # Backend
-    "youtube-quiz-generator/backend/app/__init__.py",
-    "youtube-quiz-generator/backend/app/main.py",
-    "youtube-quiz-generator/backend/app/config.py",
+# files = [
+#     # Backend
+#     "backend/app/__init__.py",
+#     "backend/app/main.py",
+#     "backend/app/config.py",
 
-    # API
-    "youtube-quiz-generator/backend/app/api/__init__.py",
-    "youtube-quiz-generator/backend/app/api/auth.py",
-    "youtube-quiz-generator/backend/app/api/videos.py",
-    "youtube-quiz-generator/backend/app/api/quizzes.py",
-    "youtube-quiz-generator/backend/app/api/attempts.py",
-    "youtube-quiz-generator/backend/app/api/users.py",
+#     # API
+#     "backend/app/api/__init__.py",
+#     "backend/app/api/auth.py",
+#     "backend/app/api/videos.py",
+#     "backend/app/api/quizzes.py",
+#     "backend/app/api/attempts.py",
+#     "backend/app/api/users.py",
 
-    # Core
-    "youtube-quiz-generator/backend/app/core/__init__.py",
-    "youtube-quiz-generator/backend/app/core/transcript.py",
-    "youtube-quiz-generator/backend/app/core/quiz_generator.py",
-    "youtube-quiz-generator/backend/app/core/scorer.py",
-    "youtube-quiz-generator/backend/app/core/security.py",
+#     # Core
+#     "backend/app/core/__init__.py",
+#     "backend/app/core/transcript.py",
+#     "backend/app/core/quiz_generator.py",
+#     "backend/app/core/scorer.py",
+#     "backend/app/core/security.py",
 
-    # AI
-    "youtube-quiz-generator/backend/app/ai/__init__.py",
-    "youtube-quiz-generator/backend/app/ai/base.py",
-    "youtube-quiz-generator/backend/app/ai/claude_provider.py",
-    "youtube-quiz-generator/backend/app/ai/openai_provider.py",
-    "youtube-quiz-generator/backend/app/ai/prompts.py",
+#     # AI
+#     "backend/app/ai/__init__.py",
+#     "backend/app/ai/base.py",
+#     "backend/app/ai/claude_provider.py",
+#     "backend/app/ai/openai_provider.py",
+#     "backend/app/ai/prompts.py",
 
-    # Database
-    "youtube-quiz-generator/backend/app/db/__init__.py",
-    "youtube-quiz-generator/backend/app/db/session.py",
-    "youtube-quiz-generator/backend/app/db/models.py",
+#     # Database
+#     "backend/app/db/__init__.py",
+#     "backend/app/db/session.py",
+#     "backend/app/db/models.py",
 
-    # CRUD
-    "youtube-quiz-generator/backend/app/db/crud/users.py",
-    "youtube-quiz-generator/backend/app/db/crud/quizzes.py",
-    "youtube-quiz-generator/backend/app/db/crud/attempts.py",
+#     # CRUD
+#     "backend/app/db/crud/users.py",
+#     "backend/app/db/crud/quizzes.py",
+#     "backend/app/db/crud/attempts.py",
 
-    # Schemas
-    "youtube-quiz-generator/backend/app/schemas/__init__.py",
-    "youtube-quiz-generator/backend/app/schemas/auth.py",
-    "youtube-quiz-generator/backend/app/schemas/quiz.py",
-    "youtube-quiz-generator/backend/app/schemas/attempt.py",
+#     # Schemas
+#     "backend/app/schemas/__init__.py",
+#     "backend/app/schemas/auth.py",
+#     "backend/app/schemas/quiz.py",
+#     "backend/app/schemas/attempt.py",
 
-    # Backend Root Files
-    "youtube-quiz-generator/backend/.env",
-    "youtube-quiz-generator/backend/.env.example",
-    "youtube-quiz-generator/backend/requirements.txt",
-    "youtube-quiz-generator/backend/Dockerfile",
+#     # Backend files
+#     "backend/.env",
+#     "backend/.env.example",
+#     "backend/requirements.txt",
+#     "backend/Dockerfile",
 
-    # Alembic
-    "youtube-quiz-generator/backend/alembic/.gitkeep",
+#     # Alembic & Tests
+#     "backend/alembic/.gitkeep",
+#     "backend/tests/.gitkeep",
 
-    # Tests
-    "youtube-quiz-generator/backend/tests/.gitkeep",
+#     # Frontend pages
+#     "frontend/src/app/page.tsx",
+#     "frontend/src/app/login/page.tsx",
+#     "frontend/src/app/dashboard/page.tsx",
+#     "frontend/src/app/quiz/[id]/page.tsx",
+#     "frontend/src/app/results/[id]/page.tsx",
+#     "frontend/src/app/history/page.tsx",
 
-    # Frontend Pages
-    "youtube-quiz-generator/frontend/src/app/page.tsx",
-    "youtube-quiz-generator/frontend/src/app/login/page.tsx",
-    "youtube-quiz-generator/frontend/src/app/dashboard/page.tsx",
-    "youtube-quiz-generator/frontend/src/app/quiz/[id]/page.tsx",
-    "youtube-quiz-generator/frontend/src/app/results/[id]/page.tsx",
-    "youtube-quiz-generator/frontend/src/app/history/page.tsx",
+#     # Components
+#     "frontend/src/components/QuizCard.tsx",
+#     "frontend/src/components/QuestionDisplay.tsx",
+#     "frontend/src/components/ResultsSummary.tsx",
+#     "frontend/src/components/HistoryList.tsx",
 
-    # Components
-    "youtube-quiz-generator/frontend/src/components/QuizCard.tsx",
-    "youtube-quiz-generator/frontend/src/components/QuestionDisplay.tsx",
-    "youtube-quiz-generator/frontend/src/components/ResultsSummary.tsx",
-    "youtube-quiz-generator/frontend/src/components/HistoryList.tsx",
+#     # Lib
+#     "frontend/src/lib/api.ts",
+#     "frontend/src/lib/auth.ts",
 
-    # Lib
-    "youtube-quiz-generator/frontend/src/lib/api.ts",
-    "youtube-quiz-generator/frontend/src/lib/auth.ts",
+#     # Types
+#     "frontend/src/types/index.ts",
 
-    # Types
-    "youtube-quiz-generator/frontend/src/types/index.ts",
+#     # Frontend files
+#     "frontend/.env.local",
+#     "frontend/package.json",
+#     "frontend/Dockerfile",
 
-    # Frontend Root Files
-    "youtube-quiz-generator/frontend/.env.local",
-    "youtube-quiz-generator/frontend/package.json",
-    "youtube-quiz-generator/frontend/Dockerfile",
+#     # Root files
+#     "docker-compose.yml",
+#     ".gitignore",
+#     "README.md",
+# ]
 
-    # Project Root
-    "youtube-quiz-generator/docker-compose.yml",
-    "youtube-quiz-generator/.gitignore",
-    "youtube-quiz-generator/README.md",
-]
+# for file in files:
+#     path = Path(file)
+#     path.parent.mkdir(parents=True, exist_ok=True)
+#     path.touch(exist_ok=True)
 
-for file in files:
-    path = Path(file)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.touch(exist_ok=True)
-
-print("✅ YouTube Quiz Generator project structure created successfully!")
-print("📁 Root folder: youtube-quiz-generator")
+# print("✅ Project structure created successfully!")
